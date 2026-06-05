@@ -42,10 +42,8 @@ body {
   background:
     radial-gradient(circle at 12% 8%, rgba(255, 217, 121, .16), transparent 24rem),
     radial-gradient(circle at 88% 22%, rgba(231, 202, 239, .16), transparent 24rem),
-    linear-gradient(90deg, rgba(255, 230, 255, .08) 1px, transparent 1px),
-    linear-gradient(rgba(255, 230, 255, .08) 1px, transparent 1px),
     linear-gradient(145deg, #55215f 0%, #7d3d8a 48%, #4d2059 100%);
-  background-size: auto, auto, 54px 54px, 54px 54px, auto;
+  background-size: auto, auto, auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -112,56 +110,53 @@ button { overflow-wrap: anywhere; }
   content: "";
 }
 
-.flower {
+.brand-mark {
   position: absolute;
-  width: clamp(120px, 16vw, 220px);
-  aspect-ratio: 1;
-  opacity: .22;
+  width: clamp(190px, 24vw, 360px);
+  height: auto;
+  opacity: .16;
+  filter: saturate(1.16) drop-shadow(0 18px 36px rgba(42, 12, 48, .2));
+  mix-blend-mode: screen;
 }
 
-.flower::before,
-.flower::after {
-  position: absolute;
-  inset: 12%;
-  border: 5px solid var(--lilac);
-  border-radius: 58% 42% 60% 40%;
-  content: "";
+.brand-mark--one {
+  top: 96px;
+  left: max(-120px, calc(50vw - 650px));
+  transform: rotate(-18deg) scale(.82);
 }
 
-.flower::after {
-  transform: rotate(62deg);
+.brand-mark--two {
+  top: 430px;
+  right: max(-138px, calc(50vw - 690px));
+  transform: rotate(16deg) scale(1.04);
 }
 
-.flower--one {
-  top: 220px;
-  left: max(18px, calc(50vw - 620px));
-  transform: rotate(-18deg);
+.brand-mark--three {
+  top: 860px;
+  left: max(18px, calc(50vw - 560px));
+  transform: rotate(23deg) scale(.68);
+  opacity: .13;
 }
 
-.flower--two {
-  top: 720px;
-  right: max(18px, calc(50vw - 640px));
-  transform: rotate(20deg);
+.brand-mark--four {
+  top: 1240px;
+  right: max(-40px, calc(50vw - 590px));
+  transform: rotate(-29deg) scale(.76);
+  opacity: .14;
 }
 
-.steam {
-  position: absolute;
-  width: 78px;
-  height: 170px;
-  border-left: 5px solid rgba(255, 217, 121, .14);
-  border-radius: 50%;
+.brand-mark--five {
+  top: 1670px;
+  left: max(-70px, calc(50vw - 660px));
+  transform: rotate(12deg) scale(.9);
+  opacity: .12;
 }
 
-.steam--one {
-  top: 1040px;
-  left: max(32px, calc(50vw - 560px));
-  transform: rotate(14deg);
-}
-
-.steam--two {
-  top: 1320px;
-  right: max(46px, calc(50vw - 580px));
-  transform: rotate(-12deg);
+.brand-mark--six {
+  top: 2140px;
+  right: max(24px, calc(50vw - 650px));
+  transform: rotate(31deg) scale(.62);
+  opacity: .11;
 }
 
 .cover,
