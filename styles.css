@@ -93,7 +93,7 @@ button { overflow-wrap: anywhere; }
 
 .background-ornaments {
   position: absolute;
-  inset: clamp(520px, 58vw, 700px) calc(50% - 50vw) 0;
+  inset: 100svh calc(50% - 50vw) 0;
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
@@ -201,6 +201,10 @@ button { overflow-wrap: anywhere; }
   min-height: inherit;
   object-fit: cover;
   object-position: center;
+}
+
+.hero-mobile-brand {
+  display: none;
 }
 
 .menu-word,
@@ -598,10 +602,6 @@ button { overflow-wrap: anywhere; }
     overflow: hidden;
   }
 
-  .background-ornaments {
-    top: 380px;
-  }
-
   .cover {
     min-height: 100vh;
     min-height: 100svh;
@@ -609,11 +609,55 @@ button { overflow-wrap: anywhere; }
   }
 
   .hero-logo {
-    width: min(390px, calc(100vw - 20px));
-    height: auto;
-    min-height: 0;
-    max-width: none;
-    object-fit: contain;
+    display: none;
+  }
+
+  .cover {
+    background:
+      radial-gradient(circle at 50% 44%, rgba(231, 202, 239, .14), transparent 14rem),
+      linear-gradient(145deg, #4c1858 0%, #733181 52%, #3a1046 100%);
+  }
+
+  .cover-content::after {
+    background:
+      linear-gradient(180deg, rgba(50, 16, 61, .04), rgba(50, 16, 61, .24) 58%, rgba(50, 16, 61, .62)),
+      radial-gradient(circle at 50% 42%, rgba(255, 217, 121, .06), transparent 18rem);
+  }
+
+  .hero-mobile-brand {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    width: min(340px, calc(100vw - 42px));
+    color: var(--lilac);
+    text-align: center;
+  }
+
+  .hero-mobile-brand img {
+    width: min(176px, 48vw);
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 20px rgba(231, 202, 239, .22));
+  }
+
+  .hero-mobile-name {
+    color: rgba(239, 219, 247, .95);
+    font-family: var(--display);
+    font-size: clamp(4.6rem, 22vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: .08em;
+    line-height: .78;
+    text-shadow: 0 12px 30px rgba(34, 7, 42, .26);
+  }
+
+  .hero-mobile-subtitle {
+    margin-top: 22px;
+    color: var(--gold-soft);
+    font-size: clamp(.74rem, 3.6vw, .98rem);
+    font-weight: 800;
+    letter-spacing: .42em;
+    line-height: 1.25;
+    text-transform: uppercase;
   }
 
   .menu-word {
