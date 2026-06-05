@@ -342,7 +342,7 @@ button { overflow-wrap: anywhere; }
 
 .feature-strip {
   display: grid;
-  grid-template-columns: 132px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 20px;
   align-items: center;
   margin-bottom: 26px;
@@ -354,18 +354,36 @@ button { overflow-wrap: anywhere; }
   border-radius: 8px;
 }
 
-.stamp {
+.feature-logo {
+  position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
-  color: var(--paper);
-  font-family: var(--display);
-  font-size: 4.6rem;
-  font-weight: 700;
-  background: radial-gradient(circle at 50% 42%, var(--violet-soft), var(--violet-dark));
-  border: 8px solid var(--lilac);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(241, 169, 54, .34);
+  min-height: 118px;
+  overflow: hidden;
+  background: #4d215b;
+  border: 1px solid rgba(255, 217, 121, .58);
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 4px rgba(231, 202, 239, .22),
+    0 14px 28px rgba(52, 18, 61, .2);
+}
+
+.feature-logo::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 244, 252, .16), transparent 38%),
+    radial-gradient(circle at 50% 44%, rgba(255, 217, 121, .12), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.feature-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.92);
+  transform-origin: center;
 }
 
 .feature-strip h3 {
@@ -624,9 +642,9 @@ button { overflow-wrap: anywhere; }
     grid-template-columns: 1fr;
   }
 
-  .stamp {
-    width: 112px;
-    font-size: 3.8rem;
+  .feature-logo {
+    width: min(230px, 100%);
+    min-height: 132px;
   }
 }
 
