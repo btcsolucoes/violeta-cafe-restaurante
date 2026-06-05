@@ -30,6 +30,10 @@ html { scroll-behavior: smooth; }
 html,
 body { overflow-x: hidden; }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -409,20 +413,35 @@ button { overflow-wrap: anywhere; }
 
 .subtabs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   margin: 0 0 18px;
+  padding: 0 0 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-padding-inline: 10px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.subtabs::-webkit-scrollbar {
+  height: 5px;
+}
+
+.subtabs::-webkit-scrollbar-track {
+  background: rgba(125, 58, 141, .08);
+  border-radius: 999px;
+}
+
+.subtabs::-webkit-scrollbar-thumb {
+  background: rgba(125, 58, 141, .42);
+  border-radius: 999px;
 }
 
 .subtabs--featured {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
   gap: 12px;
   margin-bottom: 20px;
-}
-
-.subtabs--tier {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .subtabs--nested {
@@ -435,7 +454,7 @@ button { overflow-wrap: anywhere; }
 }
 
 .subtabs--nested .subtab {
-  flex-basis: 118px;
+  flex-basis: clamp(116px, 28vw, 158px);
   min-height: 42px;
   font-size: .7rem;
   background: rgba(255, 248, 225, .55);
@@ -444,7 +463,7 @@ button { overflow-wrap: anywhere; }
 .subtab {
   display: grid;
   place-items: center;
-  flex: 1 1 136px;
+  flex: 0 0 clamp(132px, 30vw, 210px);
   min-height: 48px;
   padding: 8px 12px;
   color: var(--accent);
@@ -456,9 +475,11 @@ button { overflow-wrap: anywhere; }
   background: rgba(255, 248, 225, .34);
   border: 1px solid var(--line);
   border-radius: 8px;
+  scroll-snap-align: start;
 }
 
 .subtabs--featured .subtab--major {
+  flex-basis: clamp(190px, 36vw, 300px);
   min-height: 70px;
   font-size: .9rem;
 }
@@ -730,7 +751,6 @@ button { overflow-wrap: anywhere; }
     line-height: 1.02;
   }
 
-  .subtabs--featured,
   .price-board {
     grid-template-columns: 1fr;
   }
@@ -738,11 +758,6 @@ button { overflow-wrap: anywhere; }
   .subtabs--featured .subtab--major {
     min-height: 58px;
     font-size: .82rem;
-  }
-
-  .subtabs {
-    display: grid;
-    grid-template-columns: 1fr;
   }
 
   .menu-item {

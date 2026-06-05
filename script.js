@@ -22,6 +22,12 @@ const activateScopedTab = (tab, tabList, panelList) => {
     panel.classList.toggle('is-active', active);
     panel.hidden = !active;
   });
+
+  tab.scrollIntoView({
+    behavior: reduceMotion ? 'auto' : 'smooth',
+    block: 'nearest',
+    inline: 'center'
+  });
 };
 
 const activatePrimaryTab = (tab) => {
