@@ -173,7 +173,8 @@ button { overflow-wrap: anywhere; }
   display: grid;
   place-items: center;
   width: 100vw;
-  min-height: clamp(500px, 62vw, 680px);
+  min-height: 100vh;
+  min-height: 100svh;
   margin-inline: calc(50% - 50vw);
   overflow: hidden;
   background: #3f184d;
@@ -247,7 +248,7 @@ button { overflow-wrap: anywhere; }
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 8px;
   width: min(980px, 100%);
-  margin: -40px auto 0;
+  margin: 0 auto;
   padding: 10px;
   background: rgba(65, 24, 78, .94);
   border: 1px solid rgba(231, 202, 239, .22);
@@ -354,13 +355,16 @@ button { overflow-wrap: anywhere; }
   border-radius: 8px;
 }
 
-.feature-logo {
+.feature-flower {
   position: relative;
   display: grid;
   place-items: center;
+  aspect-ratio: 1.45;
   min-height: 118px;
   overflow: hidden;
-  background: #4d215b;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(182, 109, 215, .62), rgba(117, 55, 137, .42) 34%, transparent 66%),
+    linear-gradient(135deg, #5b2a69 0%, #442052 52%, #30133b 100%);
   border: 1px solid rgba(255, 217, 121, .58);
   border-radius: 8px;
   box-shadow:
@@ -368,22 +372,35 @@ button { overflow-wrap: anywhere; }
     0 14px 28px rgba(52, 18, 61, .2);
 }
 
-.feature-logo::after {
+.feature-flower::after {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 244, 252, .16), transparent 38%),
-    radial-gradient(circle at 50% 44%, rgba(255, 217, 121, .12), transparent 68%);
+    linear-gradient(180deg, rgba(255, 244, 252, .14), transparent 34%),
+    radial-gradient(circle at 50% 52%, rgba(255, 217, 121, .12), transparent 66%);
   content: "";
   pointer-events: none;
 }
 
-.feature-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.92);
-  transform-origin: center;
+.feature-flower svg {
+  position: relative;
+  z-index: 1;
+  width: min(138px, 80%);
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 14px rgba(231, 202, 239, .32));
+}
+
+.flower-petals {
+  fill: none;
+  stroke: rgba(246, 231, 255, .92);
+  stroke-width: 4;
+}
+
+.flower-center {
+  fill: var(--gold-soft);
+  stroke: rgba(125, 58, 141, .55);
+  stroke-width: 2;
 }
 
 .feature-strip h3 {
@@ -642,7 +659,7 @@ button { overflow-wrap: anywhere; }
     grid-template-columns: 1fr;
   }
 
-  .feature-logo {
+  .feature-flower {
     width: min(230px, 100%);
     min-height: 132px;
   }
@@ -660,7 +677,8 @@ button { overflow-wrap: anywhere; }
   }
 
   .cover {
-    min-height: 350px;
+    min-height: 100vh;
+    min-height: 100svh;
     margin-inline: 0;
   }
 
